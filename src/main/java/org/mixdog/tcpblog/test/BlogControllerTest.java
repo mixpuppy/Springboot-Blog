@@ -1,4 +1,4 @@
-package org.mixdog.tcpblog;
+package org.mixdog.tcpblog.test;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
