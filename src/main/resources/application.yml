@@ -13,27 +13,28 @@ spring:
     restart:
       enabled: false
   thymeleaf:
-    prefix: classpath:templates/thymeleaf/
+    prefix: classpath:templates/ #thymeleaf/  # 경로지정시 컨트롤러에서 워닝 발생 문제 해결해보자##########
     check-template-location: true
     suffix: .html
     mode: HTML
-    cache: false # default true, ?? ??? false? ???? ?? (???? ????? ???? ?? ??)
+    cache: false # default true, 캐시 덕분에 한번만 컴파일하여 앱 성능 좋음. 단 개발시엔 바로 적용됨이 좋아 false 로 하자
 
-  # ??? SQL ?? ??
+  # ??? SQL 설정
   jpa:
-    show-sql: true  # ???? ?? ?? ?? ??
+    show-sql: true  # 콘솔에서 작동 쿼리문 보여주기 설정
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
 # hibernate ??
     database: mysql
     hibernate:
-      ddl-auto: update  #create ? ?????? ?? ??, ?? ?? update ? ???? ?.
-      naming:
+      ddl-auto: update  #create 시 서버 재시작 시 초기화, 한번 켜고 update 시 누적처리.
+      naming:  # 엔티티와 DB 간 이름 매칭 설정
 #        strategy: org.hibernate.cfg.ImprovedNamingStrategy
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # ??? ??? ?? ? ??? ??? ?????? ??? ??
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        # 하이버네트 5.0 이상 전략 , 대소문자 유지 및 언더 바 사용으로 DB 와 엔티티간 이름 일치화
     generate-ddl: false
     properties:
       hibernate:
-        format_sql: true   # ????? ?? ????
+        format_sql: true   # TRUE 아닐 시 한줄로 나오고 TRUE 시 보기 좋게 해줌
         enable_lazy_load_no_trans: true
     open-in-view: true
