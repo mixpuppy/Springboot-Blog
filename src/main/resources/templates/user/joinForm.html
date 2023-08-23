@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="layout/head :: headFragment"></th:block>
+<body>
+<th:block th:replace="layout/header :: headerFragment"></th:block>
+
+<div class="container">
+    <form action="/user/join" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+            <label for="email">email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+        </div>
+    </form>
+    <button id="btn-save" class="btn btn-primary">회원가입하기</button>
+</div>
+<script src="/mixdog/js/user.js"></script>
+
+<th:block th:replace="layout/footer :: footerFragment"></th:block>
+
+</body>
+</html>

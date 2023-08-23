@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /mixdog
 
 spring:
   datasource:
@@ -11,7 +13,7 @@ spring:
     livereload:
       enabled: true
     restart:
-      enabled: false
+      enabled: true
   thymeleaf:
     prefix: classpath:templates/ #thymeleaf/  # 경로지정시 컨트롤러에서 워닝 발생 문제 해결해보자##########
     check-template-location: true
@@ -27,7 +29,7 @@ spring:
 # hibernate ??
     database: mysql
     hibernate:
-      ddl-auto: update  #create 시 서버 재시작 시 초기화, 한번 켜고 update 시 누적처리.
+      ddl-auto: create  #create 시 서버 재시작 시 초기화, 한번 켜고 update 시 누적처리.
       naming:  # 엔티티와 DB 간 이름 매칭 설정
 #        strategy: org.hibernate.cfg.ImprovedNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
